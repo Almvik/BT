@@ -1,203 +1,844 @@
-<!DOCTYPE html>
-<!-- saved from url=(0059)https://www.w3schools.com/w3css/tryw3css_templates_band.htm -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Blodtørst</title>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blodtørst | Extreme Metal from Trondheim</title>
+  <meta name="description" content="Official-style Blodtørst website for releases, press, concerts, band information, and media.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #070706;
+      --ink: #f3eee6;
+      --muted: #b9aea2;
+      --soft: #d8c9b5;
+      --panel: rgba(20, 17, 14, .88);
+      --panel-strong: #17130f;
+      --line: rgba(243, 238, 230, .16);
+      --red: #a80f16;
+      --red-dark: #5b080c;
+      --iron: #8d8f8b;
+      --gold: #c6a160;
+      --shadow: rgba(0, 0, 0, .48);
+    }
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="w3.css">
-<link rel="stylesheet" href="css">
-<link rel="stylesheet" href="font-awesome.min.css">
-<style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
-</style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(7, 7, 6, .08), #070706 780px),
+        url("BT2023-1.png") center top / min(1600px, 160vw) auto no-repeat,
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, .72), rgba(0, 0, 0, .24) 46%, rgba(0, 0, 0, .68)),
+        linear-gradient(180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .7));
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px clamp(16px, 4vw, 56px);
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(7, 7, 6, .78);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 950;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 4px;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, .06);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .hero {
+      min-height: min(760px, calc(100vh - 63px));
+      display: grid;
+      align-items: end;
+      padding: clamp(64px, 10vw, 120px) clamp(16px, 4vw, 56px) 44px;
+    }
+
+    .hero-inner {
+      width: min(1120px, 100%);
+      text-shadow: 0 4px 30px #000;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: .84rem;
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 1000px;
+      font-size: clamp(3.45rem, 12vw, 10.5rem);
+      line-height: .84;
+    }
+
+    .hero-copy {
+      max-width: 820px;
+      margin: 22px 0 0;
+      color: #f5e6d7;
+      font-size: clamp(1.06rem, 2vw, 1.36rem);
+      line-height: 1.55;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: rgba(7, 7, 6, .78);
+      color: var(--ink);
+      font-weight: 900;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .button.primary {
+      border-color: rgba(168, 15, 22, .78);
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+    }
+
+    main {
+      background:
+        linear-gradient(90deg, rgba(168, 15, 22, .12), transparent 34%, rgba(198, 161, 96, .08)),
+        var(--bg);
+    }
+
+    section {
+      padding: clamp(44px, 7vw, 86px) clamp(16px, 4vw, 56px);
+      border-top: 1px solid var(--line);
+    }
+
+    .wrap {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 420px);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 4.9rem);
+      line-height: .96;
+    }
+
+    .lede {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    .facts,
+    .releases,
+    .members,
+    .press-grid,
+    .concerts,
+    .gallery,
+    .contact-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .facts {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .fact,
+    .release,
+    .member,
+    .press-card,
+    .concert-card,
+    .contact-card,
+    .quote {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: 0 18px 46px rgba(0, 0, 0, .2);
+    }
+
+    .fact {
+      min-height: 112px;
+      padding: 18px;
+    }
+
+    .fact b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gold);
+      font-size: .75rem;
+      text-transform: uppercase;
+    }
+
+    .fact span {
+      font-size: 1.08rem;
+      font-weight: 900;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(280px, 440px) minmax(0, 1fr);
+      gap: clamp(18px, 4vw, 46px);
+      align-items: stretch;
+    }
+
+    .feature-image {
+      min-height: 440px;
+      margin: 0;
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+      overflow: hidden;
+    }
+
+    .story {
+      display: grid;
+      gap: 18px;
+      align-content: center;
+      color: var(--soft);
+      font-size: 1.02rem;
+      line-height: 1.72;
+    }
+
+    .story p {
+      margin: 0;
+    }
+
+    .releases {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+
+    .release {
+      overflow: hidden;
+    }
+
+    .cover,
+    .portrait,
+    .gallery-item {
+      background: #100f0d;
+      overflow: hidden;
+    }
+
+    .cover,
+    .portrait {
+      aspect-ratio: 1;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .release.no-art .cover {
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(255, 126, 50, .3), transparent 32%),
+        linear-gradient(145deg, #3a0904, #0b0705 58%, #170f0b);
+      color: #f3cf91;
+      font-size: 2rem;
+      font-weight: 950;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .release-body,
+    .member-body,
+    .press-card,
+    .concert-card,
+    .contact-card {
+      padding: 18px;
+    }
+
+    h3 {
+      font-size: 1.02rem;
+      line-height: 1.18;
+    }
+
+    .meta {
+      margin: 8px 0 0;
+      color: var(--gold);
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .release p,
+    .member p,
+    .press-card p,
+    .concert-card p,
+    .contact-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .press-grid {
+      grid-template-columns: 1.1fr .9fr;
+    }
+
+    .press-card.big {
+      background:
+        linear-gradient(135deg, rgba(168, 15, 22, .18), transparent),
+        var(--panel);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .05);
+      color: var(--soft);
+      font-size: .78rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .concerts {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .concert-card {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .datebox {
+      display: grid;
+      place-items: center;
+      min-height: 84px;
+      border: 1px solid rgba(198, 161, 96, .42);
+      background: #0c0b09;
+      color: var(--gold);
+      text-align: center;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .datebox span {
+      display: block;
+      font-size: 1.55rem;
+      color: var(--ink);
+    }
+
+    .members {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .member.no-photo .portrait {
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background:
+        linear-gradient(135deg, rgba(168, 15, 22, .25), rgba(0, 0, 0, .1)),
+        #100f0d;
+      color: var(--gold);
+      font-size: 2.6rem;
+      font-weight: 950;
+    }
+
+    .member.arild .portrait img {
+      object-position: center 28%;
+    }
+
+    .gallery {
+      grid-template-columns: 1.2fr .8fr .8fr;
+      grid-auto-rows: 220px;
+    }
+
+    .gallery-item {
+      border: 1px solid var(--line);
+    }
+
+    .gallery-item.tall {
+      grid-row: span 2;
+    }
+
+    .gallery-item.wide {
+      grid-column: span 2;
+    }
+
+    .quote {
+      padding: clamp(24px, 4vw, 44px);
+      border-left: 6px solid var(--red);
+      color: #efe2d1;
+      font-size: clamp(1.25rem, 3vw, 2.25rem);
+      line-height: 1.28;
+      font-weight: 900;
+    }
+
+    .quote p {
+      margin: 0;
+    }
+
+    .contact-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .contact-card a {
+      color: #f0cf90;
+      word-break: break-word;
+    }
+
+    footer {
+      padding: 26px clamp(16px, 4vw, 56px) 34px;
+      background: #040403;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.55;
+    }
+
+    footer p {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1040px) {
+      .facts,
+      .releases,
+      .members,
+      .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      body {
+        background-size: auto 660px;
+      }
+
+      .nav,
+      .section-head,
+      .split,
+      .press-grid,
+      .concerts {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .facts,
+      .releases,
+      .members,
+      .gallery,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-auto-rows: 260px;
+      }
+
+      .gallery-item.tall,
+      .gallery-item.wide {
+        grid-row: span 1;
+        grid-column: span 1;
+      }
+
+      .feature-image {
+        min-height: 330px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero {
+        min-height: 660px;
+      }
+
+      .nav-links a {
+        padding: 7px 8px;
+      }
+
+      .concert-card {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<!-- Navbar -->
-<p id="home"></p>
-<div class="w3-top">
-  <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#home" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BAND</a>
-    <a href="#releases" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RELEASES</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-    
-    
-  </div>
-</div>
-
-<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-
-<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#home" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">HOME</a>
-  <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BAND</a>
-  <a href="#releases" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RELEASES</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
-</div>
-
-<!-- Page content -->
-
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
-   <div class="w3-black" id="tour"> 
-  <!-- Automatic Slideshow Images -->
-  <div class="mySlides w3-display-container w3-center" style="display: block;">
-    <img src="Single Artwork - Berar.png" style="width:40%">                                     <!-- Erstatt bilde -->
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>BERAR</h3>
-      <p><b>Our newest single</b></p>   
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="#home">
+      <img src="Ø liten.png" alt="Blodtørst mark">
+      <span>Blodtørst</span>
+    </a>
+    <div class="nav-links">
+      <a href="#band">Band</a>
+      <a href="#releases">Releases</a>
+      <a href="#nidviser">Nidviser</a>
+      <a href="#concerts">Concerts</a>
+      <a href="#media">Media</a>
+      <a href="#contact">Contact</a>
     </div>
-  </div>
-  <div class="mySlides w3-display-container w3-center" style="display: none;">
-    <img src="Dalmunr Album Artwork.png" style="width:40%">                               <!-- Erstatt bilde -->
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>DALMUNR</h3>
-      <p><b>Our upcoming album, release date 13. Jan</b></p>    
-    </div>
-  </div>
-  <div class="mySlides w3-display-container w3-center" style="display: none;">
-    <img src="Cover kvadrat.jpg" style="width:40%">                      <!-- Erstatt bilde -->        
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>FERD</h3>
-      <p><b>Our Debut album</b></p>    
-    </div>
-  </div>
-</div>
-  <!-- The Band Section -->
-  <p id="band"></p>
-  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-    <h2 class="w3-wide">BLODTØRST</h2>
-    <p class="w3-opacity"><i>Trondheim</i></p>
-    <p class="w3-justify">BLODTØRST is an extreme metal band from Trondheim. 
-Conceived in 2019 by two black metal-heads, a death metal vocalist, a heavy rock guitarist, and an extreme metal drummer, the members found common ground in wanting to create music under the extreme metal moniker. The band’s mantra has from the start to follow no fixed musical route, but rather follow the current mood in the band when creating music. The members can bring anything to the table and the band will make it BLODTØRST. 
+  </nav>
 
-BLODTØRST’s debut album FERD was released on March 12th, 2021. The album is inspired by diverse Norwegian nature and follows foul creatures, scum, outcasts on their journeys. 
-
-Following the release of FERD and the amicable split with original guitarist Dag Axel A. Loe, powerhouse guitarist Jørgen Alexandersen joined the band in 2021. 
-
-Now, their upcoming album DALMUNR dives deeper into the backstory of FERD’s title track, in a grizzly original story penned by vocalist Mathias J. Rye. The mix is organic and brutal, with minimal use of “studio magic”, to capture the violence that is BLODTØRST. 
-</p>                                                
-    <div class="w3-row w3-padding-32">
-      <div class="w3-third">
-        <p>Vocals - Mattias Jamtli Rye</p>
-        <img src="mathias2.jpg" class="w3-round w3-margin-bottom" alt="Mattis" style="width:60%"> <!-- Erstatt bilde -->
-      </div>
-      <div class="w3-third">
-        <p>Bass - Raymond Hansen</p>
-        <img src="raymon1.jpg" class="w3-round w3-margin-bottom" alt="Ray" style="width:60%"> <!-- Erstatt bilde -->
-      </div>
-      <div class="w3-third">
-        <p>Drums - Mads Aas</p>
-        <img src="mads1.jpg" class="w3-round w3-margin-bottom" alt="Ray" style="width:60%"> <!-- Erstatt bilde -->
-      </div>
-      </div>
-    <div class="w3-row w3-padding-32">
-      <div class="w3-third">
-        <p>Rhytm guitar - Jørgen Alexandersen</p>
-        <img src="jorgen1.jpg" class="w3-round w3-margin-bottom" alt="Jürg" style="width:60%"> <!-- Erstatt bilde -->
-      </div>
-      <div class="w3-third">
-        <p>Lead guitar - Andreas Almvik Johnsen</p>
-        <img src="andreas2.jpg" class="w3-round w3-margin-bottom" alt="Ray" style="width:60%"> <!-- Erstatt bilde -->
-      </div>
+  <header class="hero" id="home">
+    <div class="hero-inner">
+      <p class="eyebrow">Extreme metal from Trondheim, Norway</p>
+      <h1>Blodtørst</h1>
+      <p class="hero-copy">
+        Cold aggression, primal brutality, and Norwegian storytelling from a band that refuses to follow one fixed musical route.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="#nidviser">New album</a>
+        <a class="button" href="#releases">Discography</a>
       </div>
     </div>
-  
+  </header>
 
-  <!-- The Tour Section -->
-  <p id="releases"></p>
-  <div class="w3-black" id="tour">
-    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-      <h2 class="w3-wide w3-center">RELEASES</h2> 
-
-      <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-        <div class="w3-third w3-margin-bottom">
-          <img src="Dalmunr Album Artwork.png" alt="DALMUNR" style="width:100%" class="w3-hover-opacity"> <!-- Erstatt bilde -->
-          <div class="w3-container w3-white">
-            <p><b>DALMUNR</b></p>
-            <p class="w3-opacity">2023</p>
-            
-            
-          </div>
+  <main>
+    <section id="band">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Band</h2>
+          <p class="lede">
+            Blodtørst was conceived in 2019 by musicians with roots in black metal, death metal, heavy rock, and extreme metal.
+          </p>
         </div>
-        <div class="w3-third w3-margin-bottom">
-          <img src="Cover kvadrat.jpg" alt="FERD" style="width:100%" class="w3-hover-opacity"> <!-- Erstatt bilde -->
-          <div class="w3-container w3-white">
-            <p><b>FERD</b></p>
-            <p class="w3-opacity">2021</p>
-            
-            
-          </div>
-        </div>
-        
+        <div class="facts">
+          <div class="fact"><b>Origin</b><span>Trondheim</span></div>
+          <div class="fact"><b>Founded</b><span>2019</span></div>
+          <div class="fact"><b>Style</b><span>Extreme metal</span></div>
+          <div class="fact"><b>Next Release</b><span>Third single, fall 2026</span></div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-
-
-  <!-- The Contact Section -->
-  <p id="contact"></p>
-  <div class="w3-container w3-content w3-padding-64" style="max-width:3000px" id="contact">
-    <h2 class="w3-wide w3-center">CONTACT</h2>
-    <p class="w3-opacity w3-center"><i>Fan? Drop a note!</i></p>
-    <div class="w3-row w3-padding-32">
-      <div class="w3-col m6 w3-large w3-margin-bottom">
-        <i>Trondheim, Norway</i><br>        
-        <i>Email: blodtorstband@gmail.com</i><br>
-        <i>Facebook: facebook.com/Blodtorstofficialnorway</i><br>
-        <i>Spotify: https://open.spotify.com/artist/7CqlSXbA5zdfUVux6ECw80?si=sPhNLrIMSIGc1sTsCwmImQ</i> <br>
-        <i>Instagram: @blodtorstband</i> <br>
-        <i>Youtube: https://www.youtube.com/channel/UCZudPc4yqipkRQrmr7nHLRA</i> <br>
+    <section>
+      <div class="wrap split">
+        <figure class="feature-image">
+          <img src="BT2023-3.png" alt="Blodtørst band photo">
+        </figure>
+        <div class="story">
+          <h2>No Fixed Route</h2>
+          <p>
+            The band found common ground in wanting to create music under the extreme metal banner. From the start, the mantra has been to follow no fixed sonic route.
+          </p>
+          <p>
+            Members can bring anything to the table, and the band will bend it into Blodtørst. That freedom runs through the debut album <em>Ferd</em>, the story-led <em>Dalmunr</em>, and the coming third album <em>Nidviser</em>.
+          </p>
+          <p>
+            The sound favors organic violence over studio polish: bleak and cold aggression balanced against the band's more primal brutality.
+          </p>
+        </div>
       </div>
-    </div>
-      
-  
-<!-- End Page Content -->
-</div>
+    </section>
 
-<!-- Image of location/map -->
-<img src="logo horris.png" class="w3-image w3-greyscale-min" style="width:100%"> <!-- Erstatt bilde -->
+    <section id="releases">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Releases</h2>
+          <p class="lede">Current Spotify discography, plus the announced third single and album artwork for the Nidviser era.</p>
+        </div>
+        <div class="releases">
+          <article class="release">
+            <div class="cover"><img src="Picsart_26-04-28_22-54-50-440.jpg" alt="Morderske single artwork"></div>
+            <div class="release-body">
+              <h3>Morderske</h3>
+              <p class="meta">Latest release | Single</p>
+              <p>Second single from the upcoming <em>Nidviser</em> album.</p>
+            </div>
+          </article>
+          <article class="release">
+            <div class="cover"><img src="atter-1-justert_1.png" alt="Atter Rir Vinteren single artwork"></div>
+            <div class="release-body">
+              <h3>Atter Rir Vinteren</h3>
+              <p class="meta">Single | 2026</p>
+              <p>First single from the upcoming <em>Nidviser</em> album.</p>
+            </div>
+          </article>
+          <article class="release">
+            <div class="cover"><img src="Dalmunr Album Artwork.png" alt="Dalmunr album artwork"></div>
+            <div class="release-body">
+              <h3>Dalmunr</h3>
+              <p class="meta">Album | 2023</p>
+              <p>A concept album that dives deeper into the backstory of <em>Ferd</em>'s title track.</p>
+            </div>
+          </article>
+          <article class="release">
+            <div class="cover"><img src="Cover.png" alt="Ferd album artwork"></div>
+            <div class="release-body">
+              <h3>Ferd</h3>
+              <p class="meta">Album | 2021</p>
+              <p>Debut album, released March 12, 2021, following outcasts through Norwegian nature.</p>
+            </div>
+          </article>
+          <article class="release">
+            <div class="cover"><img src="Single Artwork - Berar.png" alt="Berar single artwork"></div>
+            <div class="release-body">
+              <h3>Berar</h3>
+              <p class="meta">Single | 2022</p>
+              <p>Single from the <em>Dalmunr</em> album cycle.</p>
+            </div>
+          </article>
+          <article class="release">
+            <div class="cover"><img src="Picsart_26-04-28_23-02-31-202.jpg" alt="Nidviser single artwork"></div>
+            <div class="release-body">
+              <h3>Third Nidviser Single</h3>
+              <p class="meta">Single | Fall 2026</p>
+              <p>Upcoming third single, using the same artwork as the album.</p>
+            </div>
+          </article>
+          <article class="release">
+            <div class="cover"><img src="Picsart_26-04-28_23-02-31-202.jpg" alt="Nidviser album artwork"></div>
+            <div class="release-body">
+              <h3>Nidviser</h3>
+              <p class="meta">Album | 2026</p>
+              <p>Third full-length album, due September 18, 2026.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
+    <section id="nidviser">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Nidviser</h2>
+          <p class="lede">
+            The third album tells 12 different stories around one theme: 18th-century capital punishments in Norway.
+          </p>
+        </div>
+        <div class="press-grid">
+          <article class="press-card big">
+            <h3>New Album Out September 18, 2026</h3>
+            <p>
+              After <em>Dalmunr</em>, Blodtørst turns toward a wider metal spectrum. <em>Nidviser</em> keeps the storytelling focus, but shifts from one fictional concept into twelve separate narratives tied together by historical punishment and death.
+            </p>
+            <p>
+              The album was recorded, mixed, and mastered in Grimsland Studios in Trondheim and will be released independently by the band.
+            </p>
+            <div class="tag-list">
+              <span class="tag">12 stories</span>
+              <span class="tag">Norwegian history</span>
+              <span class="tag">Grimsland Studios</span>
+              <span class="tag">Independent release</span>
+            </div>
+          </article>
+          <article class="press-card">
+            <h3>Press</h3>
+            <p>
+              For interviews, press photos, review copies, and booking-related material, contact the band directly.
+            </p>
+            <p><a href="mailto:blodtorstband@gmail.com">blodtorstband@gmail.com</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
 
+    <section id="concerts">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Concerts</h2>
+          <p class="lede">Confirmed and announced information from the press materials. Placeholders are kept honest where details are still unknown.</p>
+        </div>
+        <div class="concerts">
+          <article class="concert-card">
+            <div class="datebox">Oct <span>?</span> 2026</div>
+            <div>
+              <h3>Nidviser Release Concert</h3>
+              <p class="meta">Lager 11 | Trondheim</p>
+              <p>Hometown release celebration for <em>Nidviser</em>. Guest bands are still TBA.</p>
+            </div>
+          </article>
+          <article class="concert-card">
+            <div class="datebox">More <span>TBA</span></div>
+            <div>
+              <h3>Upcoming Shows</h3>
+              <p class="meta">Announcements pending</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<script>
-// Automatic Slideshow - change image every 4 seconds
-var myIndex = 0;
-carousel();
+    <section id="members">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Lineup</h2>
+          <p class="lede">Current lineup from the 2026 Nidviser press material.</p>
+        </div>
+        <div class="members">
+          <article class="member">
+            <div class="portrait"><img src="mathias2.jpg" alt="Mathias Jamtli Rye"></div>
+            <div class="member-body"><h3>Mathias Jamtli Rye</h3><p>Vocals</p></div>
+          </article>
+          <article class="member">
+            <div class="portrait"><img src="andreas2.jpg" alt="Andreas Almvik Johnsen"></div>
+            <div class="member-body"><h3>Andreas Almvik Johnsen</h3><p>Guitar</p></div>
+          </article>
+          <article class="member arild">
+            <div class="portrait"><img src="Arild 1.png" alt="Arild Nilstad"></div>
+            <div class="member-body"><h3>Arild Nilstad</h3><p>Guitar</p></div>
+          </article>
+          <article class="member">
+            <div class="portrait"><img src="raymon1.jpg" alt="Raymond Hansen"></div>
+            <div class="member-body"><h3>Raymond Hansen</h3><p>Bass</p></div>
+          </article>
+          <article class="member">
+            <div class="portrait"><img src="mads1.jpg" alt="Mads Aas"></div>
+            <div class="member-body"><h3>Mads Aas</h3><p>Drums</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 4000);    
-}
+    <section>
+      <div class="wrap">
+        <div class="quote">
+          <p>The musical vision is to balance bleak, cold aggressiveness with primal brutality.</p>
+        </div>
+      </div>
+    </section>
 
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
+    <section id="media">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Media</h2>
+          <p class="lede">Selected images from the local press and site folder.</p>
+        </div>
+        <div class="gallery">
+          <div class="gallery-item tall"><img src="BT2023-2.png" alt="Blodtørst band photo"></div>
+          <div class="gallery-item"><img src="BT2023-1.png" alt="Blodtørst band photo"></div>
+          <div class="gallery-item"><img src="BT2023-3.png" alt="Blodtørst band photo"></div>
+          <div class="gallery-item wide"><img src="atter-1-justert_1.png" alt="Blodtørst atmospheric artwork"></div>
+          <div class="gallery-item"><img src="DSCF7366.jpg" alt="Blodtørst live photo"></div>
+          <div class="gallery-item"><img src="DSCF7378.jpg" alt="Blodtørst live photo"></div>
+        </div>
+      </div>
+    </section>
 
-// When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p class="lede">For press, booking, social tags, and listening links.</p>
+        </div>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3>Direct</h3>
+            <p>Trondheim, Norway</p>
+            <p><a href="mailto:blodtorstband@gmail.com">blodtorstband@gmail.com</a></p>
+          </article>
+          <article class="contact-card">
+            <h3>Listen</h3>
+            <p><a href="https://open.spotify.com/artist/7CqlSXbA5zdfUVux6ECw80?si=sPhNLrIMSIGc1sTsCwmImQ">Spotify</a></p>
+            <p><a href="https://www.youtube.com/channel/UCZudPc4yqipkRQrmr7nHLRA">YouTube</a></p>
+          </article>
+          <article class="contact-card">
+            <h3>Social</h3>
+            <p><a href="https://www.facebook.com/Blodtorstofficialnorway">Facebook: @Blodtørst</a></p>
+            <p><a href="https://www.instagram.com/blodtorstband/">Instagram: @Blodtorstband</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
-
-</body></html>
+  <footer>
+    <p>
+      Blodtørst website rebuild using local assets and press material from this folder. Update concert dates and guest bands when confirmed.
+    </p>
+  </footer>
+</body>
+</html>
