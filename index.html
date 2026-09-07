@@ -361,12 +361,25 @@
 
     .press-grid {
       grid-template-columns: 1.1fr .9fr;
+      align-items: start;
     }
 
     .press-card.big {
       background:
         linear-gradient(135deg, rgba(168, 15, 22, .18), transparent),
         var(--panel);
+    }
+
+    .press-art {
+      aspect-ratio: 16 / 9;
+      margin: -18px -18px 22px;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      background: #100f0d;
+    }
+
+    .press-art img {
+      object-fit: contain;
     }
 
     .tag-list {
@@ -384,6 +397,22 @@
       font-size: .78rem;
       font-weight: 850;
       text-transform: uppercase;
+    }
+
+    .tracklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 18px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--soft);
+      font-size: .94rem;
+    }
+
+    .tracklist li {
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
     }
 
     .concerts {
@@ -522,7 +551,8 @@
       .releases,
       .members,
       .gallery,
-      .contact-grid {
+      .contact-grid,
+      .tracklist {
         grid-template-columns: 1fr;
       }
 
@@ -599,7 +629,59 @@
           <div class="fact"><b>Origin</b><span>Trondheim</span></div>
           <div class="fact"><b>Founded</b><span>2019</span></div>
           <div class="fact"><b>Style</b><span>Extreme metal</span></div>
-          <div class="fact"><b>Next Release</b><span>Third single, fall 2026</span></div>
+          <div class="fact"><b>Next Release</b><span>Nidviser | 02.10.2026</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="nidviser">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Nidviser</h2>
+          <p class="lede">
+            The third album tells 12 different stories around one theme: 18th-century capital punishments in Norway.
+          </p>
+        </div>
+        <div class="press-grid">
+          <article class="press-card big">
+            <figure class="press-art">
+              <img src="Picsart_26-04-28_23-02-31-202.jpg" alt="Nidviser and Skarprettaren artwork">
+            </figure>
+            <h3>Nidviser Out Friday 02.10.2026</h3>
+            <p>
+              Bleaker, colder, and a tad more melancholic, <em>Nidviser</em> tells twelve separate stories centered on a common theme. Where <em>Dalmunr</em> was a concept album set to one fictional tale, this album draws its stories from 18th- and 19th-century capital punishments in Norway.
+            </p>
+            <p>
+              The musical vision is to show more of Blodtørst's metal spectrum by balancing bleak and cold aggressiveness with primal brutality. The album was recorded, mixed, and mastered at <a href="https://www.facebook.com/profile.php?id=100064300202402&__tn__=K">Grimsland Studio</a> in Trondheim.
+            </p>
+            <div class="tag-list">
+              <span class="tag">12 stories</span>
+              <span class="tag">Norwegian history</span>
+              <span class="tag">Grimsland Studios</span>
+              <span class="tag">Independent release</span>
+            </div>
+            <ol class="tracklist" aria-label="Nidviser tracklist">
+              <li>(01) Atter Rir Vinteren</li>
+              <li>(02) Morderske</li>
+              <li>(03) Skarprettaren</li>
+              <li>(04) Skinndau</li>
+              <li>(05) Deus Kaos</li>
+              <li>(06) Golem</li>
+              <li>(07) Tvil</li>
+              <li>(08) Dødsdåp</li>
+              <li>(09) Dei Gloriam</li>
+              <li>(10) Utburd</li>
+              <li>(11) Når Han Ser Vred</li>
+              <li>(12) Tåkenatt</li>
+            </ol>
+          </article>
+          <article class="press-card">
+            <h3>Press</h3>
+            <p>
+              For interviews, press photos, review copies, and booking-related material, contact the band directly.
+            </p>
+            <p><a href="mailto:blodtorstband@gmail.com">blodtorstband@gmail.com</a></p>
+          </article>
         </div>
       </div>
     </section>
@@ -674,53 +756,18 @@
           <article class="release">
             <div class="cover"><img src="Picsart_26-04-28_23-02-31-202.jpg" alt="Nidviser single artwork"></div>
             <div class="release-body">
-              <h3>Third Nidviser Single</h3>
-              <p class="meta">Single | Fall 2026</p>
-              <p>Upcoming third single, using the same artwork as the album.</p>
+              <h3>Skarprettaren</h3>
+              <p class="meta">Single | Out today</p>
+              <p>The third and final single from <em>Nidviser</em>.</p>
             </div>
           </article>
           <article class="release">
             <div class="cover"><img src="Picsart_26-04-28_23-02-31-202.jpg" alt="Nidviser album artwork"></div>
             <div class="release-body">
               <h3>Nidviser</h3>
-              <p class="meta">Album | 2026</p>
-              <p>Third full-length album, due September 18, 2026.</p>
+              <p class="meta">Album | Friday 02.10.2026</p>
+              <p>Blodtørst's third album, released on streaming platforms Friday 02.10.2026.</p>
             </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="nidviser">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Nidviser</h2>
-          <p class="lede">
-            The third album tells 12 different stories around one theme: 18th-century capital punishments in Norway.
-          </p>
-        </div>
-        <div class="press-grid">
-          <article class="press-card big">
-            <h3>New Album Out September 18, 2026</h3>
-            <p>
-              After <em>Dalmunr</em>, Blodtørst turns toward a wider metal spectrum. <em>Nidviser</em> keeps the storytelling focus, but shifts from one fictional concept into twelve separate narratives tied together by historical punishment and death.
-            </p>
-            <p>
-              The album was recorded, mixed, and mastered in Grimsland Studios in Trondheim and will be released independently by the band.
-            </p>
-            <div class="tag-list">
-              <span class="tag">12 stories</span>
-              <span class="tag">Norwegian history</span>
-              <span class="tag">Grimsland Studios</span>
-              <span class="tag">Independent release</span>
-            </div>
-          </article>
-          <article class="press-card">
-            <h3>Press</h3>
-            <p>
-              For interviews, press photos, review copies, and booking-related material, contact the band directly.
-            </p>
-            <p><a href="mailto:blodtorstband@gmail.com">blodtorstband@gmail.com</a></p>
           </article>
         </div>
       </div>
@@ -734,18 +781,11 @@
         </div>
         <div class="concerts">
           <article class="concert-card">
-            <div class="datebox">Oct <span>?</span> 2026</div>
+            <div class="datebox">Next <span>TBA</span></div>
             <div>
-              <h3>Nidviser Release Concert</h3>
-              <p class="meta">Lager 11 | Trondheim</p>
-              <p>Hometown release celebration for <em>Nidviser</em>. Guest bands are still TBA.</p>
-            </div>
-          </article>
-          <article class="concert-card">
-            <div class="datebox">More <span>TBA</span></div>
-            <div>
-              <h3>Upcoming Shows</h3>
-              <p class="meta">Announcements pending</p>
+              <h3>Next concert</h3>
+              <p class="meta">Date and venue TBA</p>
+              <p>Details will be announced when confirmed.</p>
             </div>
           </article>
         </div>
@@ -835,10 +875,6 @@
     </section>
   </main>
 
-  <footer>
-    <p>
-      Blodtørst website rebuild using local assets and press material from this folder. Update concert dates and guest bands when confirmed.
-    </p>
-  </footer>
+  <footer></footer>
 </body>
 </html>
